@@ -1,0 +1,52 @@
+@import "./variaveis.scss";
+
+@font-face {
+    font-family: $fontRegular;
+    src: url('../fonts/BiennaleRegular.otf');
+}
+
+@font-face {
+    font-family: $fontLight;
+    src: url('../fonts/BiennaleLight.otf') format('opentype');
+}
+
+@font-face {
+    font-family: $fontBold;
+    src: url('../fonts/BiennaleBold.otf') format('opentype');
+}
+
+* {
+  font-family: $fontRegular;
+  font-size: 14px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  padding: 0px;
+}
+
+input {
+  &::placeholder{
+      color: $cinza1;
+      opacity: 1;
+  }
+
+  &:-ms-input-placeholder{
+      color: $cinza2;
+  }
+
+  &::-ms-input-placeholder{
+      color: $cinza2;
+  }
+}
