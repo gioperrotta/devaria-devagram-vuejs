@@ -1,29 +1,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-
-import { LoginServices } from '../services/LoginServices'
-import router from '@/router';
-
-const loginService = new LoginServices()
+import Footer from '@/components/Footer.vue'
+import Header from '@/components/Header.vue'
 
 export default defineComponent({
-  setup() {
-    return {
-      loginService
-    }
-  },
-  methods: {
-    sair() {
-      loginService.logout()
-      router.push({name: 'login'})
-    }
-  },
+  components: { Header, Footer },
+
 });
 </script>
 
 <template>
-  <div>
-    <h1>HOME PAGE</h1>
-    <button @click="sair">Sair</button>
-  </div>
+  <Header/>
+
+  <Footer />
 </template>
