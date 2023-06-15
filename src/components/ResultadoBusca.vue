@@ -12,7 +12,7 @@ import Avatar from './Avatar.vue'
     },
     methods: {
         irParaUsuario() {
-            router.push("/usuario/" + this.id);
+            router.push("/feed/" + this.id);
         }
     },
     components: { Avatar }

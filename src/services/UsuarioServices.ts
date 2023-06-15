@@ -10,7 +10,7 @@ export class UsuarioServices extends HttpApiServices{
             return await this.get('/pesquisa?id=' + id);
         }
 
-        return await this.get('/usuario');
+        return await this.get('/user');
     }
 
     async togglFollow(id : String){
@@ -18,6 +18,6 @@ export class UsuarioServices extends HttpApiServices{
     }
 
     async atualizar(body : any){
-        await this.put('/usuario', body);
+        await this.put('/user', body);
     }
 }

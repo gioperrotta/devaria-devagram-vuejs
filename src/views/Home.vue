@@ -2,15 +2,39 @@
 import { defineComponent } from 'vue'
 import Footer from '@/components/Footer.vue'
 import Header from '@/components/Header.vue'
+import Feed from '@/components/Feed.vue'
+import Loading from 'vue3-loading-overlay'
+
+import { FeedServices } from '@/services/FeedServices';
+
+const feedServices = new FeedServices();
 
 export default defineComponent({
-  components: { Header, Footer },
-
+  components: { Header, Footer, Feed, Loading },
+  data() {
+    return{
+      posts: [],
+      loading: false
+    }
+  },
+  async mounted() {
+        try {
+            this.loading = true;
+            const result = await feedServices.getFeedPrincipal();
+            if (result && result.data) {
+                this.posts = result.data;
+            }
+        } catch (e) {
+            console.log(e);
+        }
+        this.loading = false;
+    }
 });
 </script>
 
 <template>
-  <Header/>
-
+  <Loading :active="loading" :can-cancel="false" color="#5E49FF" :is-full-page="true"/>
+  <Header />
+  <Feed :posts="posts" v-if="posts && posts.length > 0" />
   <Footer />
 </template>

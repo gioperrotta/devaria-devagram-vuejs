@@ -2,7 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import LoginViewVue from '@/views/LoginView.vue'
 import HomeVue from '@/views/Home.vue'
+import UsuarioVue from '@/views/Usuario.vue'
 import CadastroVue from '@/views/Cadastro.vue'
+import PerfilVue from '@/views/Perfil.vue'
+import EditarVue from '@/views/Editar.vue'
+import PublicacaoVue from '@/views/Publicacao.vue'
 
 import { useAccessTokenStore } from '@/stores/accessToken';
 
@@ -25,6 +29,30 @@ const router = createRouter({
       path: '/usercreate',
       name: 'cadastro',
       component: CadastroVue
+    },
+    {
+      path: '/feed/:id',
+      name: 'usuario',
+      component: UsuarioVue,
+      meta: { rotaPrivada: true }
+    },
+    {
+      path: '/feed',
+      name: 'perfil',
+      component: PerfilVue,
+      meta: { rotaPrivada: true }
+    },
+    {
+      path: '/editar',
+      name: 'editar',
+      component: EditarVue,
+      meta: { rotaPrivada: true }
+    },
+    {
+      path: '/publicacao',
+      name: 'publicacao',
+      component: PublicacaoVue,
+      meta: { rotaPrivada: true }
     },
   ]
 })

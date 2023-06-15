@@ -1,8 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Navegacao from './Navegacao.vue'
-import { UsuarioServices } from '../services/UsuarioServices';
 import ResultadoBusca from './ResultadoBusca.vue';
+import { UsuarioServices } from '@/services/UsuarioServices';
 
 const usuarioServices = new UsuarioServices();
 
@@ -22,7 +22,6 @@ export default defineComponent({
             this.inputFocus = v;
         },
         async buscarUsuarios(e : any){
-            console.log(`buscarUsuarios`)
             try{
                 if(!e?.target?.value){
                     this.resultado = [];
